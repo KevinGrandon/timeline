@@ -10,6 +10,8 @@
     <title>FirefoxOS Timeline</title>
     <link rel="stylesheet" href="style/css/app.css">
 
+    <link rel="stylesheet" href="style/fonts/climacons-font.css">
+
     <script src="shared/js/l10n.js"></script>
     <script src="shared/js/l10n_date.js"></script>
 
@@ -20,10 +22,17 @@
   <body>
     <ul id="timeline">
       <li>
+        <span class="icon climacon rain"></span>
+        <section class="title">70% chance of rain in Paris</section>
+        <section class="meta">bring an umbrella</section>
+      </li>
+      <li>
+        <img class="icon" src="style/images/calendar.png">
         <section class="title">10 meetings</section>
         <section class="meta">looks like it's going to be a busy day</section>
       </li>
       <li>
+        <img class="icon" src="style/images/calendar.png">
         <section class="title">Meeting at 10:00 AM</section>
         <section class="meta">with Chris Lee, Faramarz, and 4 others.</section>
       </li>
@@ -31,13 +40,21 @@
         <section class="horizon">^ FUTURE ^</section>
       </li>
       <li id="now"></li>
-      <li>You took 4 pictures</li>
-      <li>Received an SMS from Jamie Chen</li>
       <li>
+        <img class="icon" src="style/images/camera.png">
+        <section class="meta">You took 4 pictures</section>
+      </li>
+      <li>
+        <img class="icon" src="style/images/sms.png">
+        <section class="meta">Received an SMS from Jamie Chen</section>
+      </li>
+      <li>
+        <img class="icon" src="style/images/calendar.png">
         <section class="title">Meeting with Andreas</section>
         <section class="meta">And 4 other Events</section>
       </li>
       <li>
+        <img class="icon" src="style/images/email.png">
         <section class="title">Received 50 emails</section>
         <section class="meta">tagged with dev-gaia, dev-b2g and more</section>
       </li>

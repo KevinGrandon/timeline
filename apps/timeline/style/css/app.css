@@ -24,9 +24,9 @@ body {
 #timeline li {
   display: block;
   width: 100%;
-  /* height: 5rem; */
+  min-height: 6rem;
   box-sizing: border-box;
-  padding: 0.5rem 0.8rem;
+  padding: 1rem 0.9rem 0.7rem;
   font-size: 1.5rem;
 }
 
@@ -43,9 +43,22 @@ body {
   font-size: 3rem;
 }
 
+#timeline .title {
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
 #timeline .meta {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #ccc;
+}
+
+#timeline .icon {
+  float: left;
+  height: 4rem;
+  width: 4rem;
+  margin-top: -0.2rem;
+  margin-right: 1rem;
 }
 
 #timeline .horizon {
@@ -53,3 +66,7 @@ body {
   font-style: italic;
 }
 
+#timeline .icon.climacon {
+  font-size: 6rem;
+  margin-top: -1.5rem;
+}
