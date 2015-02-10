@@ -80,6 +80,13 @@
       this.app.element.classList.remove('search-app');
     }
 
+    if (this.isHomeApp()) {
+      this.app.element.classList.add('home-app');
+      this.title.setAttribute('data-l10n-id', 'search-or-enter-address');
+    } else {
+      this.app.element.classList.remove('home-app');
+    }
+
     if (chrome.bar) {
       this.app.element.classList.add('bar');
       this.bar.classList.add('visible');
@@ -90,7 +97,7 @@
 
       if (this.app.isPrivateBrowser()) {
         this.element.classList.add('private');
-      } else {
+      } else if (!this.isHomeApp()) {
         this.app.element.classList.add('light');
       }
 
@@ -581,6 +588,11 @@
   };
 
   AppChrome.prototype.useCombinedChrome = function ac_useCombinedChrome(evt) {
+    // Homescreens use the combined chrome.
+    if (this.isHomeApp()) {
+      return true;
+    }
+
     return this.app.config.chrome && !this.app.config.chrome.bar;
   };
 
@@ -721,6 +733,11 @@
   AppChrome.prototype.isSearchApp = function() {
     return this.app.config.manifest &&
       this.app.config.manifest.role === 'search';
+  };
+
+  AppChrome.prototype.isHomeApp = function() {
+    return this.app.config.manifest &&
+      this.app.config.manifest.role === 'homescreen';
   };
 
   AppChrome.prototype.hasNavigation = function ac_hasNavigation(evt) {
