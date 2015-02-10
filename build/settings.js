@@ -194,7 +194,7 @@ function overrideSettings(settings, config) {
 
 function setHomescreenURL(settings, config) {
   // 'homescreen' as default value of homescreen.appName
-  let appName = 'verticalhome';
+  let appName = 'timeline';
 
   if (typeof(settings['homescreen.appName']) !== 'undefined') {
     appName = settings['homescreen.appName'];
@@ -265,7 +265,7 @@ function execute(config) {
   settings['rocketbar.newTabAppURL'] = utils.gaiaOriginURL('search',
     config.GAIA_SCHEME, config.GAIA_DOMAIN, config.GAIA_PORT) + '/index.html';
 
-  settings['debugger.remote-mode'] = config.REMOTE_DEBUGGER === '1' ? 
+  settings['debugger.remote-mode'] = config.REMOTE_DEBUGGER === '1' ?
     'adb-only' : 'disabled';
 
   if (config.PRODUCTION === '1') {

@@ -126,7 +126,7 @@ function getCollectionMetadata(config, directory, appName, entryPoint) {
 
   var origin = utils.gaiaOriginURL('collection', config.GAIA_SCHEME,
     config.GAIA_DOMAIN, config.GAIA_PORT);
- 
+
   var background = bestMatchingBackground(config, manifest, origin);
   if (background) {
     descriptor.background = background;
@@ -213,7 +213,7 @@ function getCollections(config, homescreen) {
 }
 
 function loadHomescreen(config) {
-  var defaultConfig = utils.getFile(config.GAIA_DIR, 'apps', 'verticalhome',
+  var defaultConfig = utils.getFile(config.GAIA_DIR, 'apps', 'timeline',
     'build', 'default-homescreens.json');
   var customize = utils.getJSON(defaultConfig);
 
