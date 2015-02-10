@@ -1,12 +1,12 @@
 {
-  "verticalhome": {
-    "src": ["apps/verticalhome/js/**/*.js",
-            "!apps/verticalhome/js/app.js",
-            "!apps/verticalhome/js/app_manager.js",
-            "!apps/verticalhome/js/search.js",
-            "!apps/verticalhome/js/sources/collection.js"],
+  "timeline": {
+    "src": ["apps/timeline/js/**/*.js",
+            "!apps/timeline/js/app.js",
+            "!apps/timeline/js/app_manager.js",
+            "!apps/timeline/js/search.js",
+            "!apps/timeline/js/sources/collection.js"],
     "options": {
-      "destination": "docs/verticalhome"
+      "destination": "docs/timeline"
     }
   }
 }

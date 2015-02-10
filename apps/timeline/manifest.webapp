@@ -1,6 +1,6 @@
 {
-  "name": "Homescreen",
-  "description": "Gaia Homescreen",
+  "name": "Timeline",
+  "description": "Gaia Timeline",
   "launch_path": "/index.html",
   "type": "certified",
   "role": "homescreen",
@@ -19,21 +19,9 @@
   },
   "default_locale": "en-US",
   "locales": {
-    "ar": {
-      "name": "الشاشة الرئيسية",
-      "description": "Gaia الشاشة الرئيسية"
-    },
     "en-US": {
-      "name": "Homescreen",
-      "description": "Gaia Homescreen"
-    },
-    "fr": {
-      "name": "Écran d’accueil",
-      "description": "Écran d’accueil Gaia"
-    },
-    "zh-TW": {
-      "name": "主畫面",
-      "description": "Gaia 主畫面"
+      "name": "Timeline",
+      "description": "Gaia Timeline"
     }
   },
   "icons": {
@@ -46,20 +34,10 @@
   "orientation": "default",
   "activities": {},
   "messages": [],
-  "datastores-access": {
-    "bookmarks_store": {
-      "readonly": false,
-      "description": "Display bookmarks"
-    },
-    "collections_store": {
-      "readonly": false,
-      "description": "Display collections"
-    }
-  },
   "datastores-owned": {
-    "vertical_preferences_store": {
+    "timeline": {
       "access": "readwrite",
-      "description": "Stores preferences"
+      "description": "Stores timelines"
     }
   }
 }

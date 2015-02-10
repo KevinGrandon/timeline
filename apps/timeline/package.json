@@ -2,9 +2,9 @@
   "webide": {
     "prepackage": {
       "command": "make",
-      "env": ["APP=verticalhome"],
+      "env": ["APP=timeline"],
       "cwd": "../.."
     },
-    "packageDir": "../../build_stage/verticalhome/"
+    "packageDir": "../../build_stage/timeline/"
   }
 }
