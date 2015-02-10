@@ -1,7 +1,10 @@
 (function(exports) {
 
-  function CurrentTimeItem(element) {
-    this.element = element;
+  function CurrentTimeItem(container) {
+    this.element = document.createElement('li');
+    this.element.id = 'now';
+    container.appendChild(this.element);
+
     navigator.mozL10n.ready(() => {
       this.start();
     });

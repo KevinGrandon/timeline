@@ -61,26 +61,57 @@ body {
   margin-right: 1rem;
 }
 
-#timeline .horizon {
+#timeline section.horizon {
   text-align: center;
   font-style: italic;
   line-height: 4rem;
 }
 
-#timeline .icon.climacon {
-  font-size: 6rem;
-  margin-top: -1.5rem;
-}
-
-#timeline .message {
+#timeline section.message {
   display: block;
   font-style: italic;
   margin: 1rem 4rem 0.5rem 6rem;
 }
 
-#timeline .thumbs img {
+#timeline section.thumbs {
+  height: 9rem;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
+#timeline section.thumbs img {
   height: 8rem;
   width: 8rem;
   border: 0.1rem solid #ccc;
-  margin: 0.4rem 0.6rem 0.4rem 0.4rem;
+  margin: 0.4rem 0.6rem 0.4rem 0.2rem;
+}
+
+.icon.event,
+.icon.picture,
+.icon.message,
+.icon.email {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+}
+
+.icon.event {
+  background-image: url(/style/images/calendar.png);
+}
+
+.icon.picture {
+  background-image: url(/style/images/camera.png);
+}
+
+.icon.message {
+  background-image: url(/style/images/sms.png);
+}
+
+.icon.email {
+  background-image: url(/style/images/email.png);
+}
+
+#timeline .icon.climacon {
+  font-size: 6rem;
+  margin-top: -1.5rem;
 }

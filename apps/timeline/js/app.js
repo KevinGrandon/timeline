@@ -20,21 +20,72 @@
   App.prototype = {
 
     render: function() {
-      var timeContainer = document.getElementById('now');
-      var currentTime = new CurrentTimeItem(timeContainer);
+      getStreamData().then(results => {
+        results.forEach(item => {
+          switch (item.type) {
+            case "item":
+              this.renderItem(item);
+              break;
+            case "horizon":
+              var horizon = document.createElement('li');
+              this.timelineEl.appendChild(horizon);
+              horizon.id = 'horizon';
+              horizon.innerHTML = '<section class="horizon">^ FUTURE ^</section>';
+              break;
+            case "clock":
+              var currentTime = new CurrentTimeItem(this.timelineEl);
+              break;
+          }
+        });
 
-      setTimeout(() => {
         // Scroll to 'now' to hide future items.
+        var timeContainer = document.getElementById('now');
         var nowTop = timeContainer.getBoundingClientRect().top;
         document.documentElement.scrollTop = nowTop;
       });
     },
 
+    renderItem: function(item) {
+      var listItem = document.createElement('li');
+      this.timelineEl.appendChild(listItem);
+
+      if (item.manifestURL) {
+        listItem.setAttribute('data-manifest-url', item.manifestURL);
+      }
+
+      if (item.iconClass) {
+        var icon = document.createElement('span');
+        icon.className = 'icon ' + item.iconClass;
+        listItem.appendChild(icon);
+      }
+
+      ['title', 'meta', 'message'].forEach(field => {
+        if (item[field]) {
+          var el = document.createElement('section');
+          el.className = field;
+          el.textContent = item[field];
+          listItem.appendChild(el);
+        }
+      });
+
+      if (item.photos) {
+        var thumbs = document.createElement('section');
+        thumbs.className = 'thumbs';
+        listItem.appendChild(thumbs);
+
+        item.photos.forEach(photo => {
+          var img = document.createElement('img');
+          img.src = photo;
+          thumbs.appendChild(img)
+        });
+      }
+    },
+
     handleEvent: function(e) {
-      switch(e.type) {
+      switch (e.type) {
         case 'click':
           var element = e.target;
-          while(true) {
+          while (true) {
             if (!element || element.id === this.timelineEl) {
               break;
             }
@@ -50,7 +101,11 @@
           var timeContainer = document.getElementById('now');
           var nowTop = timeContainer.getBoundingClientRect().top;
           var scrollTo = document.documentElement.scrollTop + nowTop;
-          document.documentElement.scrollTo({left: 0, top: scrollTo, behavior: 'smooth'});
+          document.documentElement.scrollTo({
+            left: 0,
+            top: scrollTo,
+            behavior: 'smooth'
+          });
           break;
       }
     }
