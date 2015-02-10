@@ -1,0 +1,21 @@
+{
+  "extends": "../../../../.jshintrc",
+  "predef": [
+    "CSSStyleSheet",
+    "IDBTransaction",
+    "assert",
+    "define",
+    "require",
+    "requirejs",
+    "requireCommon",
+    "setup",
+    "suite",
+    "suiteGroup",
+    "suiteSetup",
+    "suiteTeardown",
+    "teardown",
+    "test",
+    "testSupport",
+    "sinon"
+  ]
+}

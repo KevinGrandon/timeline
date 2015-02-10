@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "name": "Gaia taskgraph",
+    "description": "Gaia taskgraph generator"
+  },
+  "scopes": ["docker-worker:cache:resources"],
+  "tags": {},
+  "tasks": [
+    {
+      "reruns": 3,
+      "task": {
+        "metadata": {
+          "name": "Task graph construction...."
+        },
+        "provisionerId": "aws-provisioner",
+        "workerType": "gaia",
+        "scopes": ["docker-worker:cache:gaia-misc-caches"],
+        "payload": {
+          "cache": {
+            "gaia-misc-caches": "/home/tester/caches/"
+          },
+          "image": "taskcluster/gaia-taskenv:0.7.2",
+          "command": [
+            "entrypoint",
+            "echo 'what' && make node_modules && node tests/taskcluster/bin/graph > /graph.json && cat /graph.json"
+          ],
+          "graphs": ["/graph.json"]
+        },
+        "extra": {
+          "treeherder": {
+            "symbol": "G"
+          }
+        }
+      }
+    }
+  ]
+}
