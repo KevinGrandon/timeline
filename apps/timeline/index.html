@@ -4,12 +4,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
     <meta name="theme-color" content="transparent">
-    <meta name="urlbar-control" content="default">
+
+    <link rel="localization" href="/shared/locales/date/date.{locale}.properties">
+
     <title>FirefoxOS Timeline</title>
     <link rel="stylesheet" href="style/css/app.css">
+
+    <script src="shared/js/l10n.js"></script>
+    <script src="shared/js/l10n_date.js"></script>
+
+    <script defer src="js/items/current_time.js"></script>
+
     <script defer src="js/app.js"></script>
   </head>
   <body>
-    <h1>This is today</h1>
+    <ul id="timeline">
+      <li id="now"></li>
+      <li>You took 4 pictures</li>
+      <li>Received an SMS from Jamie Chen</li>
+      <li>
+        <section class="title">Meeting with Andreas</section>
+        <section class="meta">And 4 other Events</section>
+      </li>
+      <li>
+        <section class="title">Received 50 emails</section>
+        <section class="meta">tagged with dev-gaia, dev-b2g and more</section>
+      </li>
+    </ul>
   </body>
 </html>

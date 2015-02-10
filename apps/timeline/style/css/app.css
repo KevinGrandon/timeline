@@ -12,3 +12,36 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
+
+#timeline {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+#timeline li {
+  display: block;
+  width: 100%;
+  /* height: 5rem; */
+  box-sizing: border-box;
+  padding: 0.5rem 0.8rem;
+  font-size: 1.5rem;
+}
+
+#timeline li:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+/* Individual Item Styles */
+#timeline .xhuge {
+  font-size: 5rem;
+}
+
+#timeline .huge {
+  font-size: 3rem;
+}
+
+#timeline .meta {
+  font-size: 1.2rem;
+  color: #ccc;
+}

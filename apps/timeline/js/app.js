@@ -8,7 +8,8 @@
   App.prototype = {
 
     render: function() {
-      alert('got it.');
+      var timeContainer = document.getElementById('now');
+      var currentTime = new CurrentTimeItem(timeContainer);
     }
 
   };
