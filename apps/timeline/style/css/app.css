@@ -11,12 +11,14 @@ html, body {
 body {
   width: 100%;
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 #timeline {
   padding: 0;
   margin: 0;
   list-style-type: none;
+  min-height: 150%;
 }
 
 #timeline li {
@@ -45,3 +47,9 @@ body {
   font-size: 1.2rem;
   color: #ccc;
 }
+
+#timeline .horizon {
+  text-align: center;
+  font-style: italic;
+}
+
