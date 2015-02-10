@@ -64,9 +64,23 @@ body {
 #timeline .horizon {
   text-align: center;
   font-style: italic;
+  line-height: 4rem;
 }
 
 #timeline .icon.climacon {
   font-size: 6rem;
   margin-top: -1.5rem;
+}
+
+#timeline .message {
+  display: block;
+  font-style: italic;
+  margin: 1rem 4rem 0.5rem 6rem;
+}
+
+#timeline .thumbs img {
+  height: 8rem;
+  width: 8rem;
+  border: 0.1rem solid #ccc;
+  margin: 0.4rem 0.6rem 0.4rem 0.4rem;
 }
