@@ -1,10 +1,17 @@
 #quick-app-1, #quick-app-2 {
   display: inline-block;
   height: 4rem;
-  width: 50%;
+  width: 30%;
   background-repeat: no-repeat;
-  background-position: center center;
   background-size: auto 90%;
+}
+
+#quick-app-1 {
+  background-position: center right;
+}
+
+#quick-app-2 {
+  background-position: center left;
 }
 
 /* Quick fixes for icons in landscape mode */
@@ -18,6 +25,7 @@
   }
 
   #quick-app-1, #quick-app-2 {
+    background-position: center center;
     position: absolute;
     right: 0;
     display: block;
