@@ -23,16 +23,17 @@
       getStreamData().then(results => {
         results.forEach(item => {
           switch (item.type) {
-            case "item":
+            case 'item':
               this.renderItem(item);
               break;
-            case "horizon":
+            case 'horizon':
+              // Append a row with the future.
               var horizon = document.createElement('li');
               this.timelineEl.appendChild(horizon);
               horizon.id = 'horizon';
               horizon.innerHTML = '<section class="horizon">^ FUTURE ^</section>';
-              break;
-            case "clock":
+
+              // Also append a row with the current date and time.
               var currentTime = new CurrentTimeItem(this.timelineEl);
               break;
           }

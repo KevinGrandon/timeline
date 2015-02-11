@@ -11,14 +11,18 @@ var stubData = [{
   iconClass: 'event'
 }, {
   type: 'item',
+  manifestURL: 'app://clock.gaiamobile.org/manifest.webapp',
+  title: 'Wake up for work!',
+  meta: 'Alarm at 8:00AM tomorrow',
+  iconClass: 'alarm'
+}, {
+  type: 'item',
   manifestURL: 'app://calendar.gaiamobile.org/manifest.webapp',
   title: 'Meeting at 10:00 AM',
   meta: 'with Chris Lee, Faramarz, and 4 others.',
   iconClass: 'event'
 }, {
   type: 'horizon'
-}, {
-  type: 'clock'
 }, {
   type: 'item',
   manifestURL: 'app://gallery.gaiamobile.org/manifest.webapp',
