@@ -2,7 +2,10 @@
 
   function ApplicationDock() {
     this.map = new WeakMap();
-    this.dock = document.getElementById('dock');
+    this.icons = [
+      document.getElementById('quick-app-1'),
+      document.getElementById('quick-app-2')
+    ];
 
     if (applications && applications.ready) {
       this.render();
@@ -10,15 +13,8 @@
       window.addEventListener('applicationready', this);
     }
 
-    window.addEventListener('appopening', this);
-    window.addEventListener('homescreenopened', this);
-    this.dock.addEventListener('click', this)
-
-    var bottomPanel = document.getElementById('software-buttons');
-    var touchEvents = ['touchstart', 'touchmove', 'touchend'];
-    touchEvents.forEach(name => {
-      this.dock.addEventListener(name, this);
-      bottomPanel.addEventListener(name, this);
+    this.icons.forEach(icon => {
+      icon.addEventListener('click', this)
     });
   }
 
@@ -34,7 +30,7 @@
       ];
 
       var html = '';
-      manifests.forEach(tuple => {
+      manifests.forEach((tuple, index) => {
         var manifest = tuple[0];
         var entryPoint = tuple[1];
 
@@ -42,7 +38,7 @@
         var manifest = app.manifest || app.updateManifest;
         var icons = (!entryPoint ? manifest.icons : manifest.entry_points[entryPoint].icons);
 
-        var targetedPixelSize = 60 * Math.ceil(window.devicePixelRatio || 1);
+        var targetedPixelSize = 20 * Math.ceil(window.devicePixelRatio || 1);
 
         var preferredSize = Number.MAX_VALUE;
         var max = 0;
@@ -63,13 +59,12 @@
           preferredSize = max;
         }
 
-        var thisIcon = document.createElement('span');
+        var thisIcon = this.icons[index];
         thisIcon.className = 'icon';
         thisIcon.style.backgroundImage = 'url(' + app.origin + icons[preferredSize] + ')';
         if (entryPoint) {
           thisIcon.setAttribute('data-entry-point', entryPoint)
         }
-        this.dock.appendChild(thisIcon);
 
         this.map.set(thisIcon, app);
       });
@@ -79,54 +74,11 @@
 
       switch (e.type) {
         case 'click':
-          // Reset the gesture.
-          this.startY = null;
-
           var icon = this.map.get(e.target);
           if (icon && e.target.dataset && e.target.dataset.entryPoint) {
             icon.launch(e.target.dataset.entryPoint);
           } else if(icon) {
             icon.launch();
-          }
-          break;
-
-        case 'touchstart':
-          var touch = e.touches[0];
-          this.startY = touch.pageY;
-          break;
-
-        case 'touchmove':
-          var touch = e.touches[0];
-          var y = touch.pageY;
-          var dy = y - this.startY;
-          this.dock.style.transform = 'translateY(' + (dy) + 'px)';
-console.log('dy is:', dy)
-          if (dy > 70 && e.target.parentNode.id == 'dock') {
-            this.startY = null;
-            this.dock.style.transform = '';
-            this.dock.classList.remove('default-maximized');
-          } else if (dy < -50 && e.target.id == 'software-buttons') {
-            this.startY = null;
-            this.dock.style.transform = '';
-            this.dock.classList.add('default-maximized');
-          }
-          break;
-
-        case 'touchend':
-          this.startY = null;
-          this.dock.style.transform = '';
-          break;
-
-        case 'homescreenopened':
-          this.dock.classList.add('default-maximized');
-          break;
-
-        case 'appopening':
-          var activeApp = Service.currentApp;
-          if (activeApp.isHomescreen) {
-            this.dock.classList.add('default-maximized');
-          } else {
-            this.dock.classList.remove('default-maximized');
           }
           break;
 

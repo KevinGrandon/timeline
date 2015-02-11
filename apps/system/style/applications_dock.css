@@ -1,27 +1,26 @@
-#dock {
-  position: absolute;
-  bottom: 0;
-  z-index: 2147483647 !important;
-  height: 10rem;
-  width: 100%;
-  background: rgba(51, 51, 51, 0.5);
-  transition: transform 0.2s ease;
-}
-
-#dock:not(.default-maximized) {
-  transform: translateY(15rem);
-}
-
-#screen.software-button-enabled #dock {
-  bottom: var(--software-home-button-height);
-}
-
-#dock .icon {
+#quick-app-1, #quick-app-2 {
   display: inline-block;
-  height: 10rem;
+  height: 4rem;
   width: 50%;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: auto 90%;
 }
 
+/* Quick fixes for icons in landscape mode */
+@media (orientation: landscape) {
+  #quick-app-1 {
+    top: 19%;
+  }
+
+  #quick-app-2 {
+    top: 69%;
+  }
+
+  #quick-app-1, #quick-app-2 {
+    position: absolute;
+    right: 0;
+    display: block;
+    width: 100%;
+  }
+}

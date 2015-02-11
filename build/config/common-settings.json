@@ -193,7 +193,7 @@
    "screen.timeout": 60,
    "search.suggestions.enabled": true,
    "search.provider": "google",
-   "software-button.enabled": false,
+   "software-button.enabled": true,
    "homegesture.enabled": false,
    "edgesgesture.enabled": true,
    "continuous-transition.enabled": false,
