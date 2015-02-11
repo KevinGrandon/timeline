@@ -79,6 +79,7 @@
     <link rel="stylesheet" type="text/css" href="style/system/keyboard.css">
     <link rel="stylesheet" type="text/css" href="style/system/global-overlays.css">
     <link rel="stylesheet" type="text/css" href="style/ime_menu.css">
+    <link rel="stylesheet" type="text/css" href="style/applications_dock.css">
 
     <!-- Include shared building blocks -->
     <link rel="stylesheet" type="text/css" href="shared/style/confirm.css"/>
@@ -129,6 +130,7 @@
     <!-- wake lock managers, used by ScreenManager/Wifi/CpuManager -->
     <script defer src="js/wake_lock_manager.js"></script>
 
+    <script defer src="js/applications_dock.js"></script>
     <script defer src="js/cpu_manager.js"></script>
     <script defer src="js/screen_auto_brightness.js"></script>
     <script defer src="js/screen_brightness_transition.js"></script>
@@ -1209,6 +1211,8 @@
       </div>
 
       <div id="text-selection-dialog-root" data-z-index-level="text-selection-dialog"></div>
+
+      <div id="dock" class="default-maximized"></div>
 
       <div id="software-buttons" data-z-index-level="software-buttons">
         <button id="software-home-button" data-l10n-id="softwareHomeButton"></button>
