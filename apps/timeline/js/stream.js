@@ -1,5 +1,11 @@
 var stubData = [{
   type: 'item',
+  title: 'Flying from CDG to SFO',
+  meta: 'Departing 8:00AM, Terminal 3',
+  iconClass: 'travel'
+},
+{
+  type: 'item',
   title: '70% chance of rain in Paris',
   meta: 'bring an umbrella',
   iconClass: 'climacon rain'
@@ -60,9 +66,9 @@ var stubData = [{
 }];
 
 // More data
-stubData = stubData.concat(stubData.slice(5));
-stubData = stubData.concat(stubData.slice(5));
-stubData = stubData.concat(stubData.slice(5));
+stubData = stubData.concat(stubData.slice(6));
+stubData = stubData.concat(stubData.slice(6));
+stubData = stubData.concat(stubData.slice(6));
 
 function getStreamData() {
   return new Promise(resolve => {

@@ -86,13 +86,17 @@ body {
   margin: 0.4rem 0.6rem 0.4rem 0.2rem;
 }
 
+/* Icons */
+.icon {
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 .icon.alarm,
 .icon.event,
 .icon.picture,
 .icon.message,
 .icon.email {
-  background-repeat: no-repeat;
-  background-position: center center;
   background-size: 100% 100%;
 }
 
@@ -119,4 +123,9 @@ body {
 #timeline .icon.climacon {
   font-size: 6rem;
   margin-top: -1.5rem;
+}
+
+.icon.travel {
+  background-image: url(/style/images/travel.png);
+  background-size: 100% 100%;
 }
